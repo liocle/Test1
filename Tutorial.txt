@@ -1,0 +1,42 @@
+This Repo was made alongside listening to git tutorial from: https://www.youtube.com/watch?v=eL_0Ok_Gkas
+
+On Github:
+1 - Create Repository
+2 - Add Readme Create Edit -> Commit
+3 - Clone / DL to local (Code - Copy url)
+
+Locally:
+1 - git clone URL/SSH from above
+2 - touch file.py && echo "Test" > file.py
+3 - git config --global user.email john.doe@bla.bla
+4 - git config --global user.name "John Doe" #Note quotes here due to space between.
+5 - git status
+6 - git log
+7 - git add file.py #Adds file to staging
+8 - git commit -m "1st Version" # -m adds comment and it commits codes to local version database (i.e. locally only)
+9 - git push
+	1 - Authentification failed, cant used password. Either:
+		- Make token into Settings / Developper Settings / Personal Access Token and choose  whether for Https or SSH
+		- if SSH follow: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+			- Generate / Add to ssh-agent
+			$ ssh-keygen -t ed25519 -C "your_email@example.com"
+			$ eval "$(ssh-agent -s)"
+			$ ssh-add ~/.ssh/id_ed25519
+			- Adding a new SSH key to your GitHub account: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+			at ~/.ssh/id_ed25519.pub
+			# Then select and copy the contents of the id_ed25519.pub file
+			# displayed in the terminal to your clipboard
+			- on GitHub: Settings / Access / SSH / New SSH key -> Paste -> Add SSH key
+			- This helped: https://mycyberuniverse.com/how-fix-fatal-authentication-failed-for-https-github-com.html
+			- Switching remote URLs from HTTPS to SSH: 
+			$ git remote -v
+			> origin  https://github.com/USERNAME/REPOSITORY.git (fetch)
+			> origin  https://github.com/USERNAME/REPOSITORY.git (push)
+
+			$ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+
+			$ git remote -v
+			# Verify new remote URL
+			> origin  git@github.com:USERNAME/REPOSITORY.git (fetch)
+			> origin  git@github.com:USERNAME/REPOSITORY.git (push)
+
